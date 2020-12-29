@@ -14,19 +14,12 @@ body {
     #dd5789 51.77%,
     #7a2c9e 129.35%
   );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: 'Noto Sans JP', sans-serif;
-  overflow-y: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-h2 {
-  margin: 0;
-  font-size: 2.25rem;
-  font-weight: bold;
-  letter-spacing: -0.025em;
-  color: #fff;
 }
 
 button {
@@ -66,9 +59,8 @@ a:hover {
   cursor: pointer;
 }
 
-.Hello {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
+
+#root {
+  width: 90%;
+  height: 100%;
 }
