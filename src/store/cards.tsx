@@ -62,7 +62,7 @@ export const StoreProvider = ({children}) => {
     filterByAttribute: (attribute:string, filter:string) => {
       if (filter === '') {
         store.activeCards = [...store.searchBuffer];
-        return
+        return;
       }
       let filteredCards = store.searchBuffer.filter((card) => card[attribute].toLowerCase().includes(filter.toLowerCase()));
       store.activeCards = [...filteredCards];
@@ -77,11 +77,10 @@ export const StoreProvider = ({children}) => {
       let newActive = [...store.cards]
       if (race.toUpperCase() === race) {
         newActive = newActive.filter((card) =>
-            (card.type.includes(type) &&
-            card.attribute.includes(race))
-            );
+          (card.type.includes(type) &&
+         card.attribute.includes(race))
+        );
       } else {
-
         newActive = newActive.filter((card) =>
         (card.type.includes(type) &&
         card.race.includes(race))
