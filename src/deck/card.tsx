@@ -38,21 +38,36 @@ const genCardList = (card) => {
     }
 }
 
+const onMouseMove = (e) => {
+  if (e.target.className !== 'card__image') return;
+
+  let tooltip = e.target.parentNode.parentNode.nextSibling;
+
+  let x = (e.clientX + 20) + 'px';
+  let y = (e.clientY + 30) + 'px';
+  if (e.clientX + 20 > e.view.innerWidth - tooltip.offsetWidth - 20) {
+    x = e.view.innerWidth - tooltip.offsetWidth - 20 + 'px';
+  }
+
+  if (e.clientY + 30 > e.view.innerHeight - tooltip.offsetHeight) {
+    y = e.view.innerHeight - tooltip.offsetHeight + 'px';
+  }
+
+  tooltip.style.top = y;
+  tooltip.style.left = x;
+};
+
 const CardContainer = (props) => {
   return (
-      <div className="tooltip">
-    <div className='card__box'>
-      <div className='card__container'>
-        <img className='card__image' src={props.card.card_images[0].image_url}></img>
-      </div>
-
-        <div className="right">
-            <div className="text-content">
-                <h3>{props.card.name}</h3>
-                {genCardList(props.card)}
-            </div>
-            <i></i>
+    <div className="tooltip" onMouseMove={onMouseMove}>
+      <div className='card__box'>
+        <div className='card__container'>
+          <img className='card__image' src={props.card.card_images[0].image_url}></img>
         </div>
+      </div>
+      <div className='tooltip__container'>
+      <h3>{props.card.name}</h3>
+        {genCardList(props.card)}
       </div>
     </div>
   );

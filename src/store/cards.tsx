@@ -109,10 +109,7 @@ export const StoreProvider = ({children}) => {
     },
 
     getAttributes: (type) => {
-
-      if (type === ''){
-        return [];
-      }
+      if (type === '') return [];
 
       let attributes = new Set();
 
@@ -129,5 +126,5 @@ export const StoreProvider = ({children}) => {
 
   return (
     <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
-  )
+    )
 }
