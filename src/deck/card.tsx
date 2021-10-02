@@ -66,7 +66,7 @@ const CardContainer = (props) => {
         </div>
       </div>
       <div className='tooltip__container'>
-      <h3>{props.card.name}</h3>
+      <h3>{`${props.card.name} (${props.card.count})`}</h3>
         {genCardList(props.card)}
       </div>
     </div>
